@@ -1,0 +1,302 @@
+_type: export
+__export_format: 4
+__export_date: 2021-09-05T04:58:58.745Z
+__export_source: insomnia.desktop.app:v2021.5.0
+resources:
+  - _id: req_ee87a2e34c45444e82657d383c0d90a4
+    parentId: fld_2545203ad2044f4682176f6e21eee00a
+    modified: 1630725296544
+    created: 1630725281781
+    url: https://sofia-bag.herokuapp.com/api/v1/object/OJSD2J41
+    name: Objetos de um usuário
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1630725281781
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_2545203ad2044f4682176f6e21eee00a
+    parentId: wrk_58320e13f31b474da15a757e2525a728
+    modified: 1630725257328
+    created: 1630725257328
+    name: Nuvem
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1630725257328
+    _type: request_group
+  - _id: wrk_58320e13f31b474da15a757e2525a728
+    parentId: null
+    modified: 1630263398949
+    created: 1630263398949
+    name: Sofia bag
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_8a78cfb9c30543f1a94485711822f754
+    parentId: fld_4e6e57e5b0174de08d9db453e06f7e56
+    modified: 1630815351561
+    created: 1630461007936
+    url: http://{{ _.baseUrl
+      }}/api/v1/object/id=DJOI208&reminder=2021-09-04T05:00:00
+    name: List User Objects
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1630461117072
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_4e6e57e5b0174de08d9db453e06f7e56
+    parentId: wrk_58320e13f31b474da15a757e2525a728
+    modified: 1630461000377
+    created: 1630461000377
+    name: Objects
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1630461000377
+    _type: request_group
+  - _id: req_5392eb3719ee4dc8aa96a961a8b5e86c
+    parentId: fld_4e6e57e5b0174de08d9db453e06f7e56
+    modified: 1630817713806
+    created: 1630461117022
+    url: http://{{ _.baseUrl }}/api/v1/object
+    name: Create Object
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"cdRfid": "NDOIN390",
+        	"name": "NEW TEST",
+        	"category": "TEST",
+        	"reminder": "2021-09-04T10:00:00",
+        	"user": {
+        		"id": "DJOI208"
+        	}
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_30ff7e1fd1ce44b9ad4bab31b0d82091
+    authentication: {}
+    metaSortKey: -1630461117022
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_336163bd95044b2d819d0d0b4ce4a4fe
+    parentId: fld_4e6e57e5b0174de08d9db453e06f7e56
+    modified: 1630817790011
+    created: 1630815346677
+    url: http://{{ _.baseUrl }}/api/v1/object
+    name: Update Object
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"cdRfid": "NDOIN390",
+        	"name": "Notebook da empresa",
+        	"category": "Trabalho",
+        	"reminder": "2021-09-06T09:00:00",
+        	"user": {
+        		"id": "DJOI208"
+        	}
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_cff2a737e71f4763aa5ea94411b882d2
+    authentication: {}
+    metaSortKey: -1630461062512
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_242d37b45f864db0805f0c2112310687
+    parentId: fld_4e6e57e5b0174de08d9db453e06f7e56
+    modified: 1630817729970
+    created: 1630817197672
+    url: http://{{ _.baseUrl }}/api/v1/object/id=DJOI208&objectRfid=AMOIN110
+    name: Delete Object
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1630461035232
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_f65a8be5b569463b84b7814d7b7f9066
+    parentId: fld_4e6e57e5b0174de08d9db453e06f7e56
+    modified: 1630795304554
+    created: 1630795289446
+    url: http://{{ _.baseUrl }}/api/v1/object
+    name: List All
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1630461007952
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_41767944460e40e3a550bf4d01c24148
+    parentId: fld_dadca1ef01664fa4bbcd86859c286d08
+    modified: 1630814283954
+    created: 1630535443665
+    url: http://{{ _.baseUrl }}/api/v1/user/DJOI208
+    name: User
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1630535443665
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_dadca1ef01664fa4bbcd86859c286d08
+    parentId: wrk_58320e13f31b474da15a757e2525a728
+    modified: 1630451825223
+    created: 1630451825223
+    name: User
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1630451825223
+    _type: request_group
+  - _id: req_9ce654508ec34f5dba1bdb43687797b0
+    parentId: fld_dadca1ef01664fa4bbcd86859c286d08
+    modified: 1630454126173
+    created: 1630454119500
+    url: http://{{ _.baseUrl }}/api/v1/user
+    name: List Users
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1630454119500
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_389ce99a3cf94b01bf2c2cf85330907b
+    parentId: fld_dadca1ef01664fa4bbcd86859c286d08
+    modified: 1630813776833
+    created: 1630451837270
+    url: http://{{ _.baseUrl }}/api/v1/user
+    name: Create
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"id": "DJOI208",
+        	"name": "Gabriel Lucas",
+        	"nickname": "Gabe",
+        	"email": "gabriel@gmail.com",
+        	"password": "password"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_9e9fe53fbb5542dfa34bf66a277d887d
+    authentication: {}
+    metaSortKey: -1630451837270
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_117ec52caf84675cf1bc92d9916cf289f787b084
+    parentId: wrk_58320e13f31b474da15a757e2525a728
+    modified: 1630369388155
+    created: 1630263399016
+    name: Base Environment
+    data:
+      baseUrl: localhost:8080
+    dataPropertyOrder:
+      "&":
+        - baseUrl
+    color: null
+    isPrivate: false
+    metaSortKey: 1630263399016
+    _type: environment
+  - _id: jar_117ec52caf84675cf1bc92d9916cf289f787b084
+    parentId: wrk_58320e13f31b474da15a757e2525a728
+    modified: 1630263399019
+    created: 1630263399019
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: spc_99065923a1fc4c0ca9c5650f8a2a1b2f
+    parentId: wrk_58320e13f31b474da15a757e2525a728
+    modified: 1630263398952
+    created: 1630263398952
+    fileName: Sofia bag
+    contents: ""
+    contentType: yaml
+    _type: api_spec
