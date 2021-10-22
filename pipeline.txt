@@ -1,0 +1,69 @@
+pipeline {
+    agent any
+    
+    triggers {
+        pollSCM 'H/2 * * * *'
+    }
+	stages {
+		stage('Código git') {
+			steps {
+				echo 'Clonando...'
+				git branch: 'master', url: 'https://github.com/EmilyCV/SofiaBag.git'
+
+    
+			}
+		}
+        stage('Build') {
+		    steps {
+		        withSonarQubeEnv('SonarQube') {
+		            echo 'Build...'
+		            sh '/opt/maven/bin/mvn sonar:sonar'
+		        }
+		    }
+		}
+		stage('Compilação') {
+            steps{
+				echo 'Compilando...'
+				sh "/opt/maven/bin/mvn compiler:compile"
+            }
+        }
+		stage('Test') {
+		    steps {
+		        echo 'Teste...'
+		        sh '/opt/maven/bin/mvn test'
+		    }
+		}
+		stage('Install') {
+		    steps {
+		        echo 'Instalando...'
+		        sh '/opt/maven/bin/mvn install'
+		    }
+		}
+		
+		stage('Checando Dependências') {
+		    steps{
+		        sh "/opt/maven/bin/mvn dependency:tree"
+			}
+	    } 
+		
+		stage('Aceite') {
+            steps {
+				echo 'Espere o aceite de usuário'
+				input(message: 'Mandar para produção?', ok: 'Sim')
+            }
+        }
+        stage('Deploy'){
+            steps {
+		        echo 'Deploy'
+		        sh "/opt/maven/bin/mvn clean package"
+		    }
+        }
+		stage('Produção') {
+		    steps {
+		        echo 'Rodando'
+		    }
+		}
+	    
+	}
+	    
+}
